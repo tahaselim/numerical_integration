@@ -1,5 +1,8 @@
 ## script to test integration of exp function
-from testjob_1 import I_list
+# first add "src" directory to the paths
+import sys
+sys.path.append('src/')
+
 import numpy as np
 import math
 
@@ -115,3 +118,8 @@ plt.plot(N_list, I_list)
 plt.xlabel('Number of points')
 plt.ylabel('∫_a^b exp (x^2) dx')
 plt.show()
+
+
+## there are may ways to compute and quantify the error 
+# error = M^2 * (b-a)^3  / (24 * n^2)  
+# whre M is the max. of 2nd derivative of the function f. 
