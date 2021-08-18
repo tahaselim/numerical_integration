@@ -39,4 +39,35 @@ plt.show()
 
 # Now, let's test the integration of
 #  ∫_{-inf}^{inf} exp(-x**2) f(x) dx 
-# First let's compute the quadrature points and 
+# Assume the function f(x) = exp(-x**2) cos(x)
+def f_ecos(x):
+    y = math.cos(x)*math.exp(-x**2)
+    return y
+# first let's look on the function
+n = 4
+a = -1
+b = 1
+N = 100
+x = np.linspace(a, b, N)
+nx = len(x)
+y = []
+for i in range (0,nx):
+    y.append(f_ecos(x[i]))
+
+plt.plot(x, y)
+plt.xlabel('x')
+plt.ylabel('exp(-x^2)cos(x)')
+# plt.ylim([-30, 30])
+plt.show()
+# evaluate the function at the quadrature points
+x,w = np.polynomial.hermite.hermgauss(4)
+
+
+
+# we can use Hermite quadrature for integration since
+# .  the weight is exp(-x**2)
+# First let's compute the quadrature points and  weights
+x,w = np.polynomial.hermite.hermgauss(4)
+
+# now let's see the sample points along the plots. 
+
